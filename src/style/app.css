@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background: #000;
   color: #ffffff;
@@ -13,17 +19,23 @@ body {
 }
 
 header {
-  background-color: #141414;
+  background-color: rgb(0, 0, 65);
   padding: 0.6rem;
+  padding: 1rem 0 1rem 0;
   display: flex;
   align-items: center;
+  margin-bottom: 3rem;
 }
 
 .logo {
-  margin: 0;
+  margin-left: 2rem;
   padding: 0;
   max-width: 4rem;
   align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .search {
@@ -31,7 +43,7 @@ header {
   background-color: #fff;
   width: 28rem;
   font-family: inherit;
-  border: 2px solid #141414;
+  border: 2px solid #2c2b2b;
   border-radius: 1rem;
   padding: 0.3rem 1.2rem;
 }
@@ -43,27 +55,34 @@ header {
 
 .film-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   font-size: 0.9rem;
+  animation: scroll 100s linear infinite;
 }
 
 .film {
+  display: flex;
   position: relative;
   background-color: #141414;
   border-radius: 3px;
   box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  margin: 1rem;
-  width: 16rem;
+  width: 30rem;
+}
+
+.film-container:hover {
+  animation-play-state: paused;
 }
 
 .film img {
-  max-width: 100%;
+  width: 24rem;
 }
 
 .film-info {
-  display: flex;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  bottom: 0;
+  left: 0;
   padding: 0.8rem;
   align-items: center;
   justify-content: space-between;
@@ -81,14 +100,26 @@ header {
   bottom: 0;
   left: 0;
   right: 0;
-  transform: translateY(102%);
-  transition: transform 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in;
   overflow: auto;
   max-height: 100%;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  opacity: 0;
 }
 
 .film:hover .film-overview {
-  transform: translateY(0%);
+  opacity: 1;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

@@ -6,6 +6,9 @@ import './style/app.css';
 function App() {
   const [films, setFilms] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  // const [startAnimation, setStartAnimation] = useState(
+  //   'scroll 10s linear infinite'
+  // );
 
   useEffect(() => {
     fetchFilms(FEATURED_API);
@@ -29,12 +32,20 @@ function App() {
       fetchFilms(SEARCH_API + searchTerm);
     }
     setSearchTerm('');
+    // setStartAnimation('');
   };
+
+  // const animationStyle = {
+  //   animation: document.getElementsByClassName('film-container'),
+  // };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
         <header>
-          <img className="logo" src="./img/logo.png" alt="logo" />
+          <a href="./App.js" className="logo">
+            LOGO
+          </a>
           <input
             className="search"
             value={searchTerm}
