@@ -7,6 +7,7 @@
 html,
 body {
   max-width: 100%;
+  max-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -19,7 +20,7 @@ body {
 }
 
 header {
-  background-color: rgb(0, 0, 65);
+  background-color: #e50185;
   padding: 0.6rem;
   padding: 1rem 0 1rem 0;
   display: flex;
@@ -29,23 +30,31 @@ header {
 
 .logo {
   margin-left: 2rem;
-  padding: 0;
-  max-width: 4rem;
+  padding: 0.1rem 0.4rem;
   align-items: center;
-  color: #fff;
+  color: #e9ff88;
   text-decoration: none;
   font-size: 2rem;
   font-weight: bold;
+  border: 2px solid #e9ff88;
+  border-radius: 0.5rem;
+}
+
+.logo:hover {
+  color: #e50185;
+  background-color: #e9ff88;
+  transition: all 0.2s ease-in;
 }
 
 .search {
+  font-size: 1.1rem;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: #e9ff88;
   width: 28rem;
   font-family: inherit;
-  border: 2px solid #2c2b2b;
+  border: 2px solid #e50185;
   border-radius: 1rem;
-  padding: 0.3rem 1.2rem;
+  padding: 0.5rem 1.2rem;
 }
 
 .search:active,
@@ -122,5 +131,33 @@ header {
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 4rem;
+  }
+
+  header {
+    margin-bottom: 6rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .search {
+    font-size: 1rem;
+    width: 15rem;
+    padding: 0.2rem;
+  }
+
+  .film {
+    width: 16rem;
+  }
+
+  .film img {
+    width: 16rem;
   }
 }

@@ -6,9 +6,7 @@ import './style/app.css';
 function App() {
   const [films, setFilms] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  // const [startAnimation, setStartAnimation] = useState(
-  //   'scroll 10s linear infinite'
-  // );
+  const [isSearched, setIsSearched] = useState(false);
 
   useEffect(() => {
     fetchFilms(FEATURED_API);
@@ -32,19 +30,22 @@ function App() {
       fetchFilms(SEARCH_API + searchTerm);
     }
     setSearchTerm('');
-    // setStartAnimation('');
+    setIsSearched(true);
   };
 
-  // const animationStyle = {
-  //   animation: document.getElementsByClassName('film-container'),
-  // };
+  const movieList = {
+    animation: 'none',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <header>
           <a href="./App.js" className="logo">
-            LOGO
+            MOV
           </a>
           <input
             className="search"
@@ -55,7 +56,7 @@ function App() {
           />
         </header>
       </form>
-      <div className="film-container">
+      <div className="film-container" style={isSearched ? movieList : null}>
         {films.length > 0 &&
           films.map((film) => <Film key={film.id} {...film} />)}
       </div>
