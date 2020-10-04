@@ -44,7 +44,7 @@ function App() {
     <>
       <form onSubmit={handleSubmit}>
         <header>
-          <a href="./App.js" className="logo">
+          <a href="/App.js" className="logo">
             MOV
           </a>
           <input
@@ -60,6 +60,7 @@ function App() {
         {films.length > 0 &&
           films.map((film) => <Film key={film.id} {...film} />)}
       </div>
+      <script type="text/javascript" src="./config.js"></script>
     </>
   );
 }
