@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Route, Link } from 'react-router-dom';
+
 import { FEATURED_API, SEARCH_API } from './components/API';
 import Film from './components/Film';
+import { FiSearch } from 'react-icons/fi';
 import './style/app.css';
 
 function App() {
@@ -44,7 +47,7 @@ function App() {
     <>
       <form onSubmit={handleSubmit}>
         <header>
-          <a href="/App.js" className="logo">
+          <a href="https://simply-movposters.netlify.app/" className="logo">
             MOV
           </a>
           <input
@@ -54,12 +57,16 @@ function App() {
             type="search"
             placeholder="Search..."
           />
+          <button type="submit" value="submit" className="button">
+            <FiSearch />
+          </button>
         </header>
       </form>
       <div className="film-container" style={isSearched ? movieList : null}>
         {films.length > 0 &&
           films.map((film) => <Film key={film.id} {...film} />)}
       </div>
+
       <script type="text/javascript" src="./config.js"></script>
     </>
   );
