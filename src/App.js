@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Link } from 'react-router-dom';
-
 import { FEATURED_API, SEARCH_API } from './components/API';
 import Film from './components/Film';
 import { FiSearch } from 'react-icons/fi';
