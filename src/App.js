@@ -45,7 +45,7 @@ function App() {
     <>
       <form onSubmit={handleSubmit}>
         <header>
-          <a href="https://simply-movposters.netlify.app/" className="logo">
+          <a href="https://simply-filmposters.netlify.app/" className="logo">
             MOV
           </a>
           <input
